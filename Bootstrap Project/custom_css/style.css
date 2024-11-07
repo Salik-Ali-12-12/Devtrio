@@ -1,0 +1,46 @@
+
+body {
+    --sb-track-color: #fbfbfb;
+    --sb-thumb-color: #ffc107;
+    --sb-size: 12px;
+  }
+  
+  body::-webkit-scrollbar {
+    width: var(--sb-size)
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 4px;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 4px;
+    
+  }
+  
+  @supports not selector(::-webkit-scrollbar) {
+    body {
+      scrollbar-color: var(--sb-thumb-color)
+                       var(--sb-track-color);
+    }
+  }
+
+.section_padding{
+    padding: 50px 0px;
+}
+.navbar-brand h4{
+    color: white;
+    font-weight: bolder;
+    font-size: 22px;
+}
+.navbar-nav .nav-item .nav-link{
+    font-size: 17px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    transition: all 0.5s ease-in-out;
+}
+.navbar-nav .nav-item .nav-link:hover{
+    color: #ffc107;
+}
