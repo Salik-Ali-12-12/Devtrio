@@ -1,0 +1,54 @@
+:root {
+    --text-color: #fff;
+    --light-primary-color: rgb(253, 136, 214);
+    --primary-color: rgb(187, 87, 240);
+    --pink-gradient: linear-gradient(to right, var(--light-primary-color), var(--primary-color));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+small {
+    color: var(--text-color) !important;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.primary_color {
+    background: var(--pink-gradient);
+    --webkit-background-clip: text;
+    --webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.wrapper {
+    background-image: url(../assests/banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.logo img {
+    max-width: 70px;
+}
+
+.navbar_btn {
+    width: 120px;
+    border-radius: 19px;
+}
