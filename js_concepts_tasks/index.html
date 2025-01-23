@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>JS</title>
+</head>
+
+<body>
+
+    <!-- ONE -->
+    <!-- <h1>LOCAL STORAGE VS SESSION STORAGE</h1>
+    <input type="text" id="user_name" placeholder="Enter Your Name To Save LOCAL or SESSION Storage"></br></br>
+    <button id="local_storage">Save to Local Storage</button></br></br>
+    <button id="session_storage">Save to Session Storage</button></br></br>
+    <button id="show_data">Show Stored Data</button></br></br>
+
+    <script>
+        // Local Storage Work
+        document.getElementById('local_storage').addEventListener('click', function () {
+            const local_user_name = document.getElementById('user_name').value;
+            if (local_user_name) {
+                localStorage.setItem('Your name', local_user_name);
+                alert('Name saved to Local Storage!');
+            } else if (local_user_name == "") {
+                alert('Please Fill Field First!');
+            } else {
+                alert('Oops some thing went wrong!');
+            }
+        });
+
+        // Local Storage Work
+        document.getElementById('session_storage').addEventListener('click', function () {
+            const session_user_name = document.getElementById('user_name').value;
+            if (session_user_name) {
+                sessionStorage.setItem('Your name', session_user_name);
+                alert('Name saved to Session Storage!')
+            } else if (session_user_name == "") {
+                alert('Please Fill Field First!');
+            } else {
+                alert('Oops some thing went wrong!');
+            }
+        });
+
+        // Show name
+        document.getElementById('show_data').addEventListener('click', function () {
+            const p_local_name = localStorage.getItem('user_name');
+            const s_session_name = sessionStorage.getItem('user_name');
+            alert(`Local Storage: ${p_local_name || 'No data'}\nSession Storage: ${s_session_name || 'No data'}`);
+        });
+
+    </script> -->
+
+    <!-- TWO -->
+    <!-- <h1>Create an object named</h1>
+    <button id="addSub">Add New Subject</button>
+    <script>
+        const students = {
+            name: "Salik",
+            age: 18,
+            learning: "JS",
+            subjects: ["Math", "English", "Science"],
+        };
+
+        // DIsplay Object Using Function + Loop
+        function displayObject(students) {
+            for (const obj in students) {
+                console.log(`${obj}: ${students[obj]}`);
+            }
+        };
+        displayObject(students);
+        // DIsplay Object Using Loop + if
+        // for (const obj in students) {
+        //     if (students.hasOwnProperty(obj)) {
+        //         console.log(`${obj}: ${students[obj]}`);
+        //     }
+        // };
+
+        // add subject
+        document.getElementById('addSub').addEventListener('click', function () {
+            let addSub = prompt("Enter Your Favourite Subject;", "English");
+
+            // Check if the subject is valid and not already in the list
+            if (addSub && !students.subjects.includes(addSub)) {
+                students.subjects.push(addSub);
+                alert(`New subject added Successfully: ${addSub}`);
+                console.log(`New subject added: ${addSub}`);
+            } else if (students.subjects.includes(addSub)) {
+                alert("This subject is already in the list.");
+            } else {
+                alert("No subject entered.");
+            }
+            // Print the updated list of subjects
+            console.log("Updated subjects list: ", students.subjects);
+        });
+
+
+
+    </script> -->
+
+    <!-- Three -->
+    <!-- <h1 id="heading">DOM Manipulation and Event Handling</h1>
+    <input type="text" id="user_text" placeholder="Type something...">
+    <button id="update_text">Update Heading</button>
+    <button id="reset_text">Reset Heading</button>
+
+    <script>
+
+        const heading = document.getElementById('heading');
+        const user_text = document.getElementById('user_text');
+        const update_text = document.getElementById('update_text');
+        const reset_text = document.getElementById('reset_text');
+
+        // update heading
+        update_text.addEventListener('click', function () {
+            const new_text = user_text.value;
+            if(new_text){
+                heading.textContent = new_text;
+                alert("Updated");
+                user_text.value = "";
+            }
+            else {
+                alert("Please enter some text!");
+            }
+        });
+        // Event listener to reset the heading text
+        reset_text.addEventListener('click', function () {
+            heading.textContent = "DOM Manipulation and Event Handling";
+            alert("Reset");
+            textInput.value = "";
+        });
+    </script> -->
+
+
+    <!-- Four -->
+    <!-- <h1>Strings and Their Methods</h1>
+    <input type="text" id="user_input" placeholder="Type any sentece.">
+    <button id="ins">Insert</button>
+    <p id="user_output"></p>
+    <button id="uppercase">Convert to Uppercase</button>
+    <button id="lowercase">Convert to Lowercase</button>
+    <button id="length">Find Length</button>
+    <button id="characters">Extract First 5 Characters</button>
+    <script>
+        const user_input = document.getElementById('user_input');
+        const user_output = document.getElementById('user_output');
+
+        // inser user input into user output
+        document.getElementById('ins').addEventListener('click', function () {
+            const user_ins = user_input.value;
+            user_output.textContent = user_ins;
+        })
+
+        // uppercase
+        document.getElementById('uppercase').addEventListener('click', function () {
+            const text = user_input.value;
+            user_output.textContent = text.toLocaleUpperCase();
+        });
+        // lowercase
+        document.getElementById('lowercase').addEventListener('click', function () {
+            const text = user_input.value;
+            user_output.textContent = text.toLocaleLowerCase();
+        });
+        // length
+        document.getElementById('length').addEventListener('click', function () {
+            const leng = user_input.value;
+            user_output.textContent = `Length: ${leng.length}`;
+        });
+        // find character
+        document.getElementById('characters').addEventListener('click', function () {
+            const charac = user_input.value;
+            if (charac.length >= 5) {
+                user_output.textContent = charac.slice(0, 5);
+            } else {
+                user_output.textContent = `Length less than 5: ${charac}`;
+            }
+        });
+
+    </script> -->
+
+    <!-- Five -->
+    <!-- <h1>Dates and Their Methods</h1>
+    <p id="dateOutput">Date and Time will appear here</p>
+    <button id="showDate">Show Current Date</button>
+    <button id="showTime">Show Current Time</button>
+    <button id="showDay">Show Day of the Week</button>
+    <button id="daysRem">Calculate Days Until New Year</button>
+    <button id="yearDay">Find Day of the Year</button>
+    <button id="reset">Reset</button>
+
+    <script>
+        const dateOutput = document.getElementById('dateOutput');
+
+        // show current date 
+        document.getElementById('showDate').addEventListener('click', function () {
+            const now = new Date().toDateString();
+            // const now = new Date().toLocaleString();
+            // const now = new Date().toISOString().split('T')[0];
+            dateOutput.textContent = `Today is: ${now}`;
+        });
+        // Show Current Time
+        document.getElementById('showTime').addEventListener('click', function () {
+            // const now = new Date().toTimeString().split(' ')[0];
+            const now = new Date().toLocaleTimeString();
+            // const now = new Date().toTimeString();
+            dateOutput.textContent = `Time is: ${now}`;
+        });
+
+        // Show Current Day of the Week
+        document.getElementById('showDay').addEventListener('click', function () {
+            const now = new Date();
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const dayName = days[now.getDay()];
+            dateOutput.textContent = `Day is: ${dayName}`;
+        });
+
+        // Calculate Days Until New Year
+        document.getElementById('daysRem').addEventListener('click', function () {
+            const now = new Date();
+            const nextYear = now.getFullYear() + 1;
+            const newYear = new Date(`${nextYear}-01-01`);
+            const diffTime = newYear - now; // Difference in milliseconds
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Convert to days
+            dateOutput.textContent = `Days Until New Year: ${diffDays}`;
+        });
+
+        // What day is it today in the year?
+        document.getElementById('yearDay').addEventListener('click', function () {
+            var now = new Date();
+            var start = new Date(now.getFullYear(), 0, 0);
+            var diff = now - start;
+            var oneDay = 1000 * 60 * 60 * 24;
+            var day = Math.floor(diff / oneDay);
+            dateOutput.textContent = ('Day of year: ' + day);
+        });
+        // reset
+        document.getElementById('reset').addEventListener('click', function () {
+            dateOutput.textContent = "Date and Time will appear here";
+        });
+
+    </script> -->
+
+    <!-- Six -->
+    <!-- <h1>MATH METHODS</h1> -->
+
+    <!-- Generate Random Number -->
+    <!-- <h2>Generate Random Number</h2>
+    <p id="randOutput">Random Number Results Will Appear Here Now Click On Button</p>
+    <button id="randNum">Generate Random Number</button>
+    <script>
+        const randOutput = document.getElementById('randOutput');
+        document.getElementById('randNum').addEventListener('click', function () {
+            // const rand = Math.random() * 10;
+            const rand = Math.floor(Math.random() * 10);
+            randOutput.textContent = rand;
+        });
+    </script> -->
+
+    <!-- <h2>Rounding Numbers</h2>
+    <input type="text" id="rounding" placeholder="Enter a number to convert">
+    <p id="roundOutput">Enter a number</p>
+    <button id="round">Round Number</button>
+    <button id="floor">Floor Number</button>
+    <button id="ceil">Ceil Number</button>
+    <button id="reset">Reset</button>
+    <script>
+        const roundOutput = document.getElementById('roundOutput');
+        // round
+        document.getElementById('round').addEventListener('click', function(){
+        const changeInNum = parseFloat(document.getElementById('rounding').value);
+        roundOutput.textContent = Math.round(changeInNum);
+        });
+        // floor
+        document.getElementById('floor').addEventListener('click', function(){
+        const changeInNum = parseFloat(document.getElementById('rounding').value);
+        roundOutput.textContent = Math.floor(changeInNum);
+        });
+        // ceil
+        document.getElementById('ceil').addEventListener('click', function(){
+        const changeInNum = parseFloat(document.getElementById('rounding').value);
+        roundOutput.textContent = Math.ceil(changeInNum);
+        });
+        // resert
+        document.getElementById('reset').addEventListener('click', function(){
+            roundOutput.textContent = "Enter a number";
+             document.getElementById('rounding').value = "";
+        });
+        
+    </script> -->
+
+
+    <!-- Seven -->
+    <!-- <h1>Arrays and Their Methods</h1>
+
+    <p id="arrayOutput">Display Array</p>
+    <button id="display_array"> Display array.</button>
+    <button id="length">Length</button>
+    <button id="push">Push</button>
+    <button id="pop">Pop</button>
+    <button id="shift">Shift</button>
+    <button id="unshift">Unshift</button>
+    <button id="slice">Slice</button>
+    <button id="splice">Splice</button>
+    <button id="reverse">Reverse</button>
+    <button id="reset">Reset</button>
+
+    <script>
+        const arrayOutput = document.getElementById('arrayOutput');
+        let arrays = [1, 2, 3, 4, 5, 6];
+
+        // display array
+        document.getElementById('display_array').addEventListener('click', function () {
+            arrayOutput.textContent = `Array here: ${arrays}`;
+        });
+
+        // length
+        document.getElementById('length').addEventListener('click', function () {
+            const arrLength = arrays.length;
+            arrayOutput.textContent = `Array Length here: ${arrLength}`;
+        });
+        // push
+        document.getElementById('push').addEventListener('click', function () {
+            const arrPush = arrays.push(7);
+            arrayOutput.textContent = `Array add here end: ${arrPush}`;
+        });
+        // pop
+        document.getElementById('pop').addEventListener('click', function () {
+            const arrPop = arrays.pop();
+            arrayOutput.textContent = `Array remove end: ${arrPop}`;
+        });
+        // shift
+        document.getElementById('shift').addEventListener('click', function () {
+            const arrShift = arrays.shift();
+            arrayOutput.textContent = `Array remove start: ${arrShift}`;
+        });
+        // unshift
+        document.getElementById('unshift').addEventListener('click', function () {
+            const arrunShift = arrays.unshift(0);
+            arrayOutput.textContent = `Array add start: ${arrunShift}`;
+        });
+        // slice
+        document.getElementById('slice').addEventListener('click', function () {
+            const arrSlice = arrays.slice(0, 2);
+            arrayOutput.textContent = `Array slice: ${arrSlice}`;
+        });
+        // splice
+        document.getElementById('splice').addEventListener('click', function () {
+            const arrSplice = arrays.splice(6, 0, 7, 8, 9, 10, 11);
+            arrayOutput.textContent = `Array splice: ${arrSplice}`;
+        });
+        // reverse
+        document.getElementById('reverse').addEventListener('click', function () {
+            const arrReverse = arrays.reverse();
+            arrayOutput.textContent = `Array Reverse: ${arrReverse}`;
+        });
+        // reset
+        document.getElementById('reset').addEventListener('click', function () {
+            arrays = [1, 2, 3, 4, 5, 6];
+            arrayOutput.textContent = `Array Reset: ${arrays}`;
+        });
+
+
+    </script> -->
+
+
+    <!-- Eight -->
+    <!-- <h1>Functions and Parameters.</h1>
+    <p id="greetingOutput"></p>
+    <input type="text" placeholder="Enter your name" id="name"><br><br>
+    <input type="number" placeholder="Enter your age" id="age"><br><br>
+    <button id="functionCall">Greet</button>
+
+    <script>
+
+        function greetUser(name, age) {
+            const greetingMessage = `Hello Your name is: ${name}  And Your age is: ${age}`;
+            document.getElementById('greetingOutput').textContent = greetingMessage;
+        }
+        document.getElementById('functionCall').addEventListener('click', function () {
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+
+            if (name && age) {
+                greetUser(name, age);
+            } else {
+                alert("Please enter both your name and age.");
+            }
+        });
+
+
+
+    </script> -->
+
+    <!-- Nine -->
+    <!-- <h1>arrow functions.</h1>
+    <input type="number" id="num1" placeholder="Enter first number to calculate">
+    <input type="number" id="num2" placeholder="Enter secong number to calculate">
+    <p id="result">Answer will appear here</p>
+    <button id="add">Add</button>
+    <button id="sub">Subtract</button>
+    <button id="mult">Multiply</button>
+    <button id="divi">Divide</button>
+    <button id="reset">Reset</button>
+    <script>
+        const num1 = document.getElementById('num1');
+        const num2 = document.getElementById('num2');
+        const result = document.getElementById('result');
+
+        const add = (a, b) => a + b;
+        const sub = (a, b) => a - b;
+        const mult = (a, b) => a * b;
+        const divi = (a, b) => a / b;
+
+        document.getElementById('add').addEventListener('click', () => {
+            result.textContent = `Sum: ${add(+num1.value, +num2.value)}`;
+        });
+        document.getElementById('sub').addEventListener('click', () => {
+            result.textContent = `Sub: ${sub(+num1.value, +num2.value)}`;
+        });
+        document.getElementById('mult').addEventListener('click', () => {
+            result.textContent = `Mult: ${mult(+num1.value, +num2.value)}`;
+        });
+        document.getElementById('divi').addEventListener('click', () => {
+            if (num1.value < 1 || num2.value < 1) {
+                alert("Enter Valid Number To Divide")
+            } else {
+                result.textContent = `Divide: ${divi(+num1.value, +num2.value)}`;
+            }
+        });
+        document.getElementById('reset').addEventListener('click', () => {
+            result.textContent = "Answer will appear here";
+            num1.value = "";
+            num2.value = "";
+        });
+    </script> -->
+
+    <!-- Ten -->
+    <!-- <h1>Objects and Methods</h1>
+    <input type="text" id="make" placeholder="Enter car make">
+    <input type="text" id="model" placeholder="Enter car model">
+    <input type="number" id="year" placeholder="Enter car year">
+    <input type="text" id="color" placeholder="Enter car color">
+    <p id="result">Answer will appear here</p>
+    <button id="showDeta">Show Car Details</button>
+    <button id="reset">Reset</button>
+    <script>
+        const car = {
+            make: ' ',
+            model: ' ',
+            year: ' ',
+            color: ' ',
+
+            getDetails() {
+                return `Car Details: Year is: ${this.year} color is: ${this.color} make is: ${this.make} model is: ${this.model}`;
+            }
+        };
+        document.getElementById('showDeta').addEventListener('click', () => {
+            car.make = document.getElementById('make').value;
+            car.model = document.getElementById('model').value;
+            car.year = document.getElementById('year').value;
+            car.color = document.getElementById('color').value;
+
+            if (car.make && car.model && car.year > 0 && car.color) {
+                document.getElementById('result').textContent = car.getDetails();
+            } else {
+                alert("Please fill valid and all fields.");
+            }
+        });
+        document.getElementById('reset').addEventListener('click', () => {
+            car.make = document.getElementById('make').value = "";
+            car.model = document.getElementById('model').value = "";
+            car.year = document.getElementById('year').value = "";
+            car.color = document.getElementById('color').value = "";
+            document.getElementById('result').textContent = "Answer will appear here";
+        });
+    </script> -->
+
+    <!-- Eleven -->
+    <!-- <h1>Switch Case</h1>
+    <input type="number" id="dayNum" placeholder="Enter number to find day">
+    <p id="dayname">Answer Will Appear Here</p>
+    <button id="showRes">Show Day</button>
+
+    <script>
+
+        document.getElementById('showRes').addEventListener('click', () => {
+            const dayNum = parseInt(document.getElementById('dayNum').value);
+            const dayName = document.getElementById('dayname');
+
+            switch (dayNum) {
+                case 1:
+                    dayName.textContent = "Monday";
+                    break;
+                case 2:
+                    dayName.textContent = "Tuesday";
+                    break;
+                case 3:
+                    dayName.textContent = "Wednesday";
+                    break;
+                case 4:
+                    dayName.textContent = "Thursday";
+                    break;
+                case 5:
+                    dayName.textContent = "Friday";
+                    break;
+                case 6:
+                    dayName.textContent = "Saturday";
+                    break;
+                case 7:
+                    dayName.textContent = "Sunday";
+                    break;
+
+                default:
+                    dayName.textContent = "Invalid input! Please enter a number between 1 and 7.";
+            }
+        });
+    </script> -->
+
+
+    <!-- Loops -->
+    <!-- <h1>For Loop, While Loop, DO-While Loop</h1> -->
+
+    <!-- <h1>For Loop</h1>
+    <input type="number" id="forLoopInput" placeholder="Enter Number Length To Print">
+    <ul id="forLoopOutput">For Loop Output Here</ul>
+    <button id="forloop">Enter</button>
+    <button id="reset">Reset</button>
+
+    <script>
+        document.getElementById('forloop').addEventListener('click', () => {
+            const forLoopInput = document.getElementById('forLoopInput').value;
+
+            for (let i = 1; i <= forLoopInput; i++) {
+                const li = document.createElement('li');
+                const forLoopOutput = document.getElementById('forLoopOutput').appendChild(li);
+                forLoopOutput.textContent = (i);
+                document.getElementById('forLoopInput').value = "";
+            }
+        })
+        document.getElementById('reset').addEventListener('click', () => {
+            const forLoopInput = document.getElementById('forLoopInput').value = "";
+            forLoopOutput.textContent = "For Loop Output Here";
+
+        })
+    </script> -->
+
+    <!-- <h1>While Loop</h1>
+    <input type="number" id="whileLoopInput" placeholder="Enter Number To Calculate"><br>
+    <input type="number" id="sumNumber" placeholder="Enter Number To Sum">
+    <div id="whileLoopOutput">While Loop Output Here</div>
+    <button id="whileloop">Enter</button>
+    <button id="reset">Reset</button>
+
+    <script>
+        document.getElementById('whileloop').addEventListener('click', () => {
+            let whileLoopInput = document.getElementById('whileLoopInput').value;
+            let whileInt = parseFloat(whileLoopInput);
+            let sumNumber = document.getElementById('sumNumber').value;
+            let num = parseFloat(sumNumber);
+            let i = 0;
+            while (i <= whileInt) {
+                let caluc = num + i;
+                const print = document.createElement('p');
+                let whileLoopOutput = document.getElementById('whileLoopOutput').appendChild(print);
+                whileLoopOutput.textContent = `i: ${i} : ${num} + ${i} = Sum: ${caluc}`;
+                i++;
+                document.getElementById('whileLoopInput').value = "";
+                document.getElementById('sumNumber').value = "";
+            }
+        })
+        document.getElementById('reset').addEventListener('click', () => {
+            document.getElementById('whileLoopOutput').textContent = "While Loop Output Here";
+            document.getElementById('whileLoopInput').value = "";
+            document.getElementById('sumNumber').value = "";
+        })
+    </script> -->
+    <!-- 
+    <h1>Do-While Loop</h1>
+    <p>Type something and press Enter. Type "stop" to finish.</p>
+    <input type="text" id="doWhileInput" placeholder="Type here">
+    <button id="stopInput">Stop</button>
+    <ul id="doWhileOutput"></ul>
+
+    <script>
+        const doWhileInput = document.getElementById('doWhileInput');
+        const doWhileOutput = document.getElementById('doWhileOutput');
+        const stopButton = document.getElementById('stopInput');
+        let inputs = [];
+        let stop = false;
+
+        // Collect inputs until "stop"
+        const collectInputs = () => {
+            do {
+                const userInput = doWhileInput.value.trim();
+                if (userInput.toLowerCase() === "stop") {
+                    stop = true;
+                } else if (userInput) {
+                    inputs.push(userInput);
+                    const li = document.createElement("li");
+                    li.textContent = userInput;
+                    doWhileOutput.appendChild(li);
+                    doWhileInput.value = ""; // Clear the input field
+                }
+            } while (!stop);
+        };
+
+        // Stop button stops the process
+        stopButton.addEventListener("click", () => {
+            stop = true;
+            alert("Input collection stopped!");
+        });
+
+        // On pressing Enter, process the input
+        doWhileInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter" && !stop) {
+                collectInputs();
+            }
+        });
+    </script> -->
+
+    <!-- <h1>Comparison and Logical Operators</h1> -->
+
+    <!-- <input type="number" id="num1" placeholder="Enter number first to comparison">
+    <input type="number" id="num2" placeholder="Enter number last to comparison">
+    <div id="result">Answer</div>
+    <button id="compareBtn">Compare Now</button>
+
+    <script>
+        document.getElementById('compareBtn').addEventListener('click', () => {
+            let num1 = document.getElementById('num1').value;
+            let num1ToInt = parseFloat(num1);
+            let num2 = document.getElementById('num2').value;
+            let num2ToInt = parseFloat(num2);
+
+            let result = document.getElementById('result');
+            result.innerHTML = '';
+
+            if (num1ToInt > 0 && num2ToInt > 0) {
+                const comparisons = [
+                    `${num1ToInt} == ${num2ToInt} = ${num1ToInt == num2ToInt}`,
+                    `${num1ToInt} === ${num2ToInt} = ${num1ToInt === num2ToInt}`,
+                    `${num1ToInt} != ${num2ToInt} = ${num1ToInt != num2ToInt}`,
+                    `${num1ToInt} !== ${num2ToInt} = ${num1ToInt !== num2ToInt}`,
+                    `${num1ToInt} > ${num2ToInt} = ${num1ToInt > num2ToInt}`,
+                    `${num1ToInt} < ${num2ToInt} = ${num1ToInt < num2ToInt}`,
+                    `${num1ToInt} >= ${num2ToInt} = ${num1ToInt >= num2ToInt}`,
+                    `${num1ToInt} <= ${num2ToInt} = ${num1ToInt <= num2ToInt}`
+                ];
+
+
+                for (let i = 0; i < comparisons.length; i++) {
+                    const ans = document.createElement('p');
+                    ans.textContent = comparisons[i];
+                    result.appendChild(ans);
+                }
+            } else {
+                const ans = document.createElement('p');
+                ans.textContent = "Please Enter Valid Number";
+                result.appendChild(ans);
+            }
+        });
+    </script> -->
+    <!-- 
+    <input type="number" id="ageOne" placeholder="Enter Age One">
+    <input type="number" id="ageTwo" placeholder="Enter Age Other">
+    <p id="result">Answer</p>
+    <button id="ageResult">Result</button>
+    <script>
+        document.getElementById('ageResult').addEventListener('click', () => {
+            let ageOne = document.getElementById('ageOne').value;
+            let ageTwo = document.getElementById('ageTwo').value;
+            let result = document.getElementById('result');
+
+            if (ageOne == 18 && ageTwo == 18) {
+                result.textContent = "Both Are 18+";
+                let ageOne = document.getElementById('ageOne').value = "";
+                let ageTwo = document.getElementById('ageTwo').value = "";
+            } else if (ageOne == 18 || ageTwo == 18) {
+                result.textContent = "Only One is 18+";
+                let ageOne = document.getElementById('ageOne').value = "";
+                let ageTwo = document.getElementById('ageTwo').value = "";
+            } else {
+                result.textContent = "Oops You are not 18+";
+                let ageOne = document.getElementById('ageOne').value = "";
+                let ageTwo = document.getElementById('ageTwo').value = "";
+            }
+        })
+    </script> -->
+
+
+    <!-- <h1>If-Else Statements</h1> -->
+    <!-- <input type="number" id="num" placeholder="Enter Number">
+    <p id="answer">Ans</p>
+    <button id="result">Check</button>
+    <script>
+        document.getElementById('result').addEventListener('click', () => {
+            let number = document.getElementById('num').value;
+            let numToInt = parseFloat(number);
+            if (numToInt >= 1) {
+                document.getElementById('answer').textContent = "Your Number is Positive+";
+                document.getElementById('num').value = "";
+            } else if (numToInt < 0) {
+                document.getElementById('answer').textContent = "Your Number is Negative-";
+                document.getElementById('num').value = "";
+            } else {
+                document.getElementById('answer').textContent = "Your Number is Zero";
+                document.getElementById('num').value = "";
+            }
+        })
+    </script> -->
+
+
+    <!-- <input type="number" id="num" placeholder="Enter Number">
+    <p id="answer">Ans</p>
+    <button id="result">Check</button>
+    <script>
+
+        document.getElementById('result').addEventListener('click', () => {
+            let number = document.getElementById('num').value;
+            let numToInt = parseFloat(number);
+            if (numToInt % 2 == 0) {
+                document.getElementById('answer').textContent = "The number is even";
+                document.getElementById('num').value = "";
+            } else {
+                document.getElementById('answer').textContent = "The number is odd";
+                document.getElementById('num').value = "";
+            }
+        })
+    </script> -->
+
+
+    <!-- TO-DO LIST -->
+    <div class="todo-container">
+        <h1>To-Do List</h1>
+        <div class="input-section">
+            <input type="text" id="taskInput" placeholder="Enter a new task...">
+            <button id="addTaskBtn">Add Task</button>
+            <button id="removeTaskBtn">Remove All Task</button>
+        </div>
+        <ul id="taskList">
+            <!-- Tasks will be displayed here -->
+        </ul>
+    </div>
+    <script>
+        // Add event listener to the "Add Task" button
+        document.getElementById('addTaskBtn').addEventListener('click', () => {
+            // Get the user input value
+            let user_text = document.getElementById('taskInput').value;
+            if (user_text) {
+                // Get the current tasks from localStorage
+                let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+                // Add the new task to the array
+                tasks.push({ text: user_text, completed: false });
+
+                // Save the updated tasks array back to localStorage
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+
+                // Display task on the page
+                displayTasks();
+
+                // Clear the input field after adding task
+                document.getElementById('taskInput').value = '';
+                alert('Successfully Item On Last!');
+            } else {
+                alert('Please Fill Field First!');
+            }
+        });
+
+        // Function to display tasks from localStorage
+        function displayTasks() {
+            let show_user_text = document.getElementById('taskList');
+            show_user_text.innerHTML = '';  // Clear the current task list
+
+            // Get tasks from localStorage
+            let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+            tasks.forEach((task, index) => {
+                const li = document.createElement("li");
+
+                const taskContent = document.createElement("span");
+                let truncatedText = task.text.split(' ').slice(0, 10).join(' ') + '...';
+                taskContent.textContent = truncatedText;
+
+                const readMoreBtn = document.createElement("button");
+                readMoreBtn.textContent = "Read More";
+                li.appendChild(taskContent);
+                li.appendChild(readMoreBtn);
+
+                const btn_one = document.createElement("button");
+                const btn_two = document.createElement("button");
+                btn_one.textContent = "Complete";
+                btn_two.textContent = "Remove";
+                li.appendChild(btn_one);
+                li.appendChild(btn_two);
+
+                // Handle "Read More" button click
+                readMoreBtn.addEventListener('click', () => {
+                    if (readMoreBtn.textContent === "Read More") {
+                        taskContent.textContent = task.text;
+                        readMoreBtn.textContent = "Read Less";
+                    } else {
+                        taskContent.textContent = truncatedText;
+                        readMoreBtn.textContent = "Read More";
+                    }
+                });
+
+                // Handle "Complete" button click
+                btn_one.addEventListener('click', () => {
+                    task.completed = true;
+                    li.style.textDecoration = 'line-through';
+                    li.style.backgroundColor = 'green';
+                    li.style.color = 'white';
+                    alert('Successfully Completed!');
+                    saveTasks(tasks);
+                });
+
+                // Handle "Remove" button click
+                btn_two.addEventListener('click', () => {
+                    tasks.splice(index, 1);  // Remove the task from the array
+                    show_user_text.removeChild(li);
+                    saveTasks(tasks);
+                    alert('Successfully Removed!');
+                });
+
+                // If the task is completed, mark it with strikethrough
+                if (task.completed) {
+                    li.style.textDecoration = 'line-through';
+                    li.style.backgroundColor = 'green';
+                    li.style.color = 'white';
+                }
+
+                show_user_text.appendChild(li);
+            });
+        }
+
+        // Save the tasks to localStorage
+        function saveTasks(tasks) {
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        // Remove all tasks event listener
+        document.getElementById('removeTaskBtn').addEventListener('click', () => {
+            let show_user_text = document.getElementById('taskList');
+            let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+            if (tasks.length > 0) {
+                // Clear all tasks from the list and localStorage
+                tasks = [];
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                show_user_text.innerHTML = '';
+                alert('All items have been removed!');
+            } else {
+                alert('No tasks to remove!');
+            }
+        });
+
+        // Load tasks when the page is loaded
+        window.addEventListener('load', displayTasks);
+
+    </script>
+</body>
+
+</html>
