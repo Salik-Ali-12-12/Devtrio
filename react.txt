@@ -1,0 +1,16 @@
+Befor Start React check node & npm version
+->node
+->node --version
+->npm
+->npm --version
+After Check Node Version Run "npm create vite@latest" to start making your project structre
+
+If already make folder so type "." other wise type your folder name then:
+->Select->React
+->Select->JavaScript
+
+after making folder type "cd folder-name" folder k ander any k liye
+then:
+type->npm install (install all dependesies)
+then:
+type->npm run dev (live your project)
